@@ -76,3 +76,6 @@ LeadSchema.post("save", async function (doc) {
         console.error("Error in Post-save Email Hook:", error);
     }
 });
+
+
+module.exports = mongoose.model("Lead", LeadSchema);

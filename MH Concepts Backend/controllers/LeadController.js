@@ -18,6 +18,6 @@ exports.submitInquiry = async (req, res) => {
 
     } catch (error) {
         console.error("Inquiry Error:", error.message);
-        res.status(500).json({ success: false, message: "Failed to submit inquiry" });
+        res.status(500).json({ success: false, message: error.message });
     }
 };
