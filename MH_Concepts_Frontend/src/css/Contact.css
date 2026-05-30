@@ -1,0 +1,49 @@
+.contact-page { font-family: 'Poppins', sans-serif; background: #fff; }
+
+.contact-header { text-align: center; padding: 60px 20px; background: #1a1a1a; color: white; }
+.contact-header h1 { letter-spacing: 10px; margin-bottom: 10px; font-weight: 300; }
+.contact-header p { color: #c5a059; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+
+.contact-container {
+    max-width: 1200px;
+    margin: -40px auto 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.contact-info { background: #fdfcf9; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.info-item { display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start; }
+.info-icon { color: #c5a059; margin-top: 5px; }
+.info-item h4 { margin: 0 0 5px 0; font-size: 1.1rem; }
+.info-item p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+
+.contact-form-box { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.contact-form-box input, .contact-form-box textarea {
+    width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #eee; border-radius: 5px; outline: none; font-family: inherit;
+}
+.contact-form-box input:focus, .contact-form-box textarea:focus { border-color: #c5a059; }
+
+.contact-form-box button {
+    width: 100%; padding: 15px; background: #1a1a1a; color: white; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.contact-form-box button:hover { background: #c5a059; }
+.map-section {
+    width: 100%;
+    line-height: 0; /* Removes tiny white gap at the bottom */
+    margin-top: 40px;
+    border-top: 5px solid #c5a059; /* Luxury bronze border top */
+}
+
+.map-section iframe {
+    filter: grayscale(0.2); /* Optional: makes the map look more luxury/subtle */
+    transition: 0.3s;
+}
+
+.map-section iframe:hover {
+    filter: grayscale(0);
+}
+@media (max-width: 800px) {
+    .contact-container { grid-template-columns: 1fr; margin-top: 20px; }
+}

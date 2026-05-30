@@ -1,0 +1,160 @@
+.footer {
+    background: #1a1a1a;
+    color: #f8f8f8;
+    padding: 60px 0 20px 0;
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-brand h2 {
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    color: #c5a059;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.footer h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #c5a059;
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    background: #333;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: #c5a059;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    color: #666;
+}
+/* Add these to your existing Footer.css */
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.admin-discrete-link {
+    color: #444; /* Very dark grey, almost hidden on black */
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+    opacity: 0.6;
+}
+
+.admin-discrete-link:hover {
+    opacity: 1;
+    color: #c5a059; /* Only shows bronze on hover */
+}
+
+/* Ensure footer brand Link doesn't have default underline */
+.footer a {
+    text-decoration: none;
+}
+.admin-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-sep {
+    color: #444;
+    font-size: 10px;
+}
+
+.logout-text {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logout-text:hover {
+    color: #ff4d4d !important; /* Subtle red hover for logout */
+}
+@media (max-width: 800px) {
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width: 800px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer h4 { border-bottom: none; }
+    .social-icons { justify-content: center; }
+    .footer-contact p { justify-content: center; }
+}

@@ -1,0 +1,28 @@
+.error-page {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.error-code { font-size: 10rem; font-weight: 900; color: #f0ede6; margin: 0; line-height: 1; }
+.error-content h2 { font-size: 2rem; color: #1a1a1a; margin: -20px 0 10px; letter-spacing: 2px; }
+.error-content p { color: #888; margin-bottom: 30px; }
+
+.error-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #c5a059;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.error-btn:hover { background: #1a1a1a; transform: translateY(-3px); }
