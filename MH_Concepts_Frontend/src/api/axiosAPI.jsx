@@ -1,8 +1,12 @@
 import axios from "axios";
 
-export const api=axios.create({
-    baseURL:"http://localhost:4000/api/v1",
-    withCredentials:true
+// export const api=axios.create({
+//     baseURL:"http://localhost:4000/api/v1",
+//     withCredentials:true
+// })
+export const api = axios.create({
+    baseURL: "https://mh-concepts-backend.onrender.com/api/v1", 
+    withCredentials: true
 })
 
 export const SignUp=(data)=>{
