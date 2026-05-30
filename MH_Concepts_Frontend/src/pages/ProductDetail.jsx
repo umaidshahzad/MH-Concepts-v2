@@ -22,7 +22,7 @@ export const ProductDetail = () => {
             try {
                 const res = await GetSingleProduct(productCode);
                 setProduct(res.data.data);
-                console.log(res.data.data)
+                //console.log(res.data.data)
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching product", error);
