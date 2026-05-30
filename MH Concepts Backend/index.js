@@ -15,12 +15,18 @@ app.use(FileUpload({
     useTempFiles:true,
     tempFileDir:'/tmp/'
 }))
+// Add both your local URL and your deployed URL
+const allowedOrigins = [
+    "http://localhost:5173", 
+    "https://mh-concepts-frontend.onrender.com"
+];
+
 app.use(cors({
-            origin: "http://localhost:5173", 
-        credentials: true,               
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization"]
-}))
+    origin: allowedOrigins, // Use the array instead of a single string
+    credentials: true,               
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 //db connect
 const DBconnect=require("./config/Database.js");
