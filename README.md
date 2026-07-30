@@ -124,4 +124,4 @@ npm run dev
 ```
 
 ### 4. View the App
-Open [http://localhost:5173](http://localhost:5173) in your browser!
+Open [http://localhost:5173](http://localhost:5173) in your browser!
