@@ -1,53 +1,127 @@
-🏠 MH Concepts: Project Documentation
+<div align="center">
+  <h1>MH Concepts</h1>
+  <i>A Full-Stack MERN E-Commerce & Catalog Management System</i>
+  <br />
+  <!-- <a href="YOUR_LIVE_DEPLOYMENT_URL"><strong>View Live Deployment</strong></a> -->
+  <br />
+  <br />
 
-MH Concepts is a professional-grade MERN stack application designed to digitize a luxury interior decor business. It serves as a bridge between an expanding product catalog and high-speed customer engagement.
+  ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+  ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+  ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+  ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+  ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+  ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
+  ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+  ![WhatsApp](https://img.shields.io/badge/WhatsApp_Cloud_API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
+</div>
 
-🛡️ Authentication & Security (The Shield)
+## ✨ Overview
+**MH Concepts** is a professional-grade MERN stack application designed to digitize a luxury interior decor business. It serves as a bridge between an expanding product catalog and high-speed customer engagement. 
 
-JWT (JSON Web Tokens): Used to manage secure sessions for the Admin. Instead of simple local storage for sensitive data, we use signed tokens to verify that only the authorized owner (Hassan) can access the dashboard.
+The platform boasts a dynamic frontend for customers to browse detailed product pages and an advanced, secure backend admin dashboard that handles inventory management, cloud media sync, and an automated lead-generation notification engine via WhatsApp and Email.
 
-HttpOnly Cookies: For maximum security, the JWT is stored in an HttpOnly cookie. This prevents "Cross-Site Scripting" (XSS) attacks, as the token cannot be accessed by browser scripts.
-Bcrypt Password Hashing: Admin credentials are never stored in plain text. We use the Blowfish algorithm via Bcrypt to "salt" and hash passwords, ensuring data remains secure even if the database is accessed.
+## 🛠️ Tech Stack & Technologies Used
 
-Protected Routes: A specialized React "Guard" component checks the admin status before rendering sensitive pages. If an unauthorized user tries to access the dashboard URL, they are automatically redirected to the login page.
+### Frontend
+- **React (v19) & Vite**: For lightning-fast development, HMR, and optimal production builds.
+- **React Router**: Client-side routing, protected routes, and seamless navigation.
+- **Axios**: For robust HTTP requests to the backend API.
+- **Lucide React**: Sharp, consistent SVG iconography.
+- **React Hot Toast**: Beautiful, non-intrusive push notifications.
+- **CSS**: Custom luxury minimalist UI reflecting premium decor.
 
-☁️ Media & Cloud Management (The Eyes)
+### Backend
+- **Node.js & Express.js**: RESTful API architecture handling routing, middleware, and CORS.
+- **MongoDB & Mongoose**: NoSQL database with optimized indexing on product codes for instant retrieval.
+- **Authentication**: JWT (JSON Web Tokens) stored securely in HttpOnly cookies to prevent XSS attacks, coupled with **Bcrypt** for password hashing.
+- **File Uploads**: `express-fileupload` and `multer` for parsing incoming media files.
+- **Cloudinary**: Cloud image hosting and on-the-fly optimization (dynamic URL transformation compressing 10MB images to ~50KB).
 
-Cloudinary API: To keep the server lightweight, all high-resolution curtain and flooring images are hosted on Cloudinary. This ensures the website remains fast regardless of how many products are added.
+### Notification Engine & Automations
+- **Meta WhatsApp Cloud API**: Automatically sends a templated message to the owner's WhatsApp when a client submits an inquiry.
+- **Nodemailer & Resend**: Parallel SMTP transport sending formatted HTML emails containing lead details.
+- **Mongoose Post-Save Hooks**: Background triggers that execute the notification logic immediately after a new Lead is saved to the database.
 
-On-the-Fly Image Optimization: Integrated Cloudinary’s dynamic URL transformation (f_auto, q_auto). This automatically detects the user's browser and compresses 10MB phone photos into tiny 50KB files without losing visual quality.
-Synchronization Logic: A critical feature where deleting or updating a product in the database triggers a "Destroy" call to Cloudinary. This keeps the cloud storage clean and synchronized with the inventory.
+## 🌟 Key Features
+- **Dynamic Catalog & Search**: Advanced filtering by categories (Flooring, Curtains, etc.) and search by Product Code or Title.
+- **Secure Admin Dashboard**: Mobile-first control center. Admin can upload live photos straight from a phone to the live website.
+- **Lead Management Ledger**: A digital table of every customer inquiry. Admin can track "Contacted" status or delete old records.
+- **Inventory Grid**: A visual representation of stock allowing 1-click "Edit Mode" for prices and descriptions.
+- **Cloudinary Sync Logic**: Automatically calls Cloudinary's "Destroy" API when a product is deleted/updated, keeping cloud storage clean.
 
-📲 The Notification Engine (The Hustle)
+## 📂 Folder Structure
+```text
+MH Concepts/
+├── MH_Concepts_Frontend/        # React + Vite Frontend Application
+│   ├── public/                  
+│   ├── src/                     
+│   │   ├── api/                 # Axios configuration
+│   │   ├── layout/              # App Layout Wrappers
+│   │   ├── pages/               # Components (AdminDashboard, ProductDetail, etc.)
+│   │   └── App.jsx              # Application Routes & Protected Routes
+│   └── package.json             
+│
+└── MH Concepts Backend/         # Node.js + Express Backend Application
+    ├── config/                  # DB connection and Cloudinary configs
+    ├── controllers/             # AdminController, LeadController
+    ├── middlewares/             # Auth Guards, Error Handling
+    ├── models/                  # Mongoose Schemas (User, Product, Lead)
+    ├── routes/                  # Express API Routes
+    ├── index.js                 # Server entry point
+    └── package.json             
+```
 
-Meta WhatsApp Cloud API: This is the "Magic" of the project. Using the official Meta Graph API, the system sends an automated, templated message directly to the owner's WhatsApp the moment a client hits "Submit." It uses a Permanent System User Token to ensure the service never expires.
-Nodemailer (SMTP): Parallel to WhatsApp, the system uses a professional SMTP transporter via Gmail App Passwords. It sends a formatted HTML email containing the client's name, phone number, and the specific design they are interested in.
+## 🚀 Getting Started
 
-Mongoose Post-Save Hooks: The notification logic is tied directly to the Database Schema. When a new "Lead" is saved, the backend automatically triggers the email and WhatsApp logic in the background, ensuring no customer is ever missed.
+Follow these instructions to run both the frontend and backend locally.
 
-⚙️ Backend & Database Architecture (The Brain)
+### Prerequisites
+- [Node.js](https://nodejs.org/) installed
+- [MongoDB](https://www.mongodb.com/try/download/community) installed and running locally, or an Atlas URI.
 
-Node.js & Express.js: A robust RESTful API architecture. It handles everything from file uploads via express-fileupload to complex CORS (Cross-Origin Resource Sharing) configurations that allow the frontend and backend to communicate securely.
+### 1. Clone the repository
+```bash
+git clone <repository-url>
+cd "new MH Concepts"
+```
 
-MongoDB Atlas: A cloud-based NoSQL database. We used optimized indexing on product_code to ensure that even with hundreds of designs, searching and retrieving data happens in milliseconds.
-Unified CRUD Logic: The backend handles "Create, Read, Update, and Delete" operations seamlessly. The update logic is particularly advanced, as it can handle text-only updates or replace images on the cloud simultaneously.
+### 2. Backend Setup
+```bash
+cd "MH Concepts Backend"
+npm install
+```
+Create a `.env` file in `MH Concepts Backend/` with the following variables:
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+WHATSAPP_TOKEN=your_meta_api_token
+EMAIL_USER=your_email
+EMAIL_PASS=your_email_password
+```
+Start the backend server:
+```bash
+npm run dev
+```
 
-🎨 Frontend & User Experience (The Design)
+### 3. Frontend Setup
+Open a new terminal window:
+```bash
+cd "MH_Concepts_Frontend"
+npm install
+```
+Create a `.env` file in `MH_Concepts_Frontend/`:
+```env
+VITE_API_BASE_URL=http://localhost:5000/api
+```
+Start the frontend development server:
+```bash
+npm run dev
+```
 
-React (Vite): Built using the latest Vite build tool for lightning-fast development and optimized production bundles.
-
-Dynamic Filtering & Search: A unified filtering system that allows users to search by "Product Code" or "Title" while simultaneously filtering by categories like Flooring or Curtains.
-Luxury Minimalist CSS: Eschewing templates for custom, high-end CSS. The UI focuses on a "Charcoal and Bronze" palette to reflect the premium nature of the interior decor products.
-Responsive Dashboard: The Admin Control Center is built with a mobile-first approach. The owner can take a photo of a new arrival at the shop and upload it directly to the live website from his phone gallery.
-
-📊 Admin Control Center (The Dashboard)
-
-Real-Time Statistics: A data-visualization area showing Total Products, Total Leads, and "New Inquiries" (leads not yet contacted).
-Lead Management Table: A digital ledger of every customer. The Admin can mark leads as "Contacted" to change their visual status or permanently delete old records.
-Inventory Grid: A visual grid of all stock where every item can be clicked to enter "Edit Mode," allowing the owner to change prices or descriptions in seconds.
-
-🛠️ UI/UX Enhancements
-
-Lucide-React: Used for consistent, sharp SVG iconography across the entire application.
-React-Hot-Toast: Provides non-intrusive, beautiful "Toast" notifications (e.g., "Inquiry Sent Successfully!") that improve the professional feel of the user interaction.
-Auto-Formatting Date/Time: Uses the JavaScript Intl API to automatically display lead timestamps in the owner's local 12-hour format (PKT).
+### 4. View the App
+Open [http://localhost:5173](http://localhost:5173) in your browser!
